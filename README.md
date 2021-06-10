@@ -1,4 +1,4 @@
-# auth-project
+# FThing_Test
 
 ## Project setup
 ```

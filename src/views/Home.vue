@@ -1,6 +1,8 @@
 <template>
-  <div class="home">
-    <p>Heyyyyyy welcome to our blog, check out our posts</p>
+  <div class="home"> 
+      <h2 class="padd-b">Hello, <br> Welcome to test login page</h2> 
+      <img src="../assets/logo.png" width="120" /> 
+      <p>I'am build this page with vue.js</p> 
   </div>
 </template>
 
@@ -10,3 +12,13 @@ export default {
   components: {},
 };
 </script>
+
+<style scoped>
+.home h2{
+  padding-top: 100px;
+  padding-bottom: 40px;
+}
+.home p{
+  padding-top: 30px;
+}
+</style>

@@ -1,20 +1,23 @@
 <template>
-  <div class="container"> 
-    <div v-if="User">
-      <!-- <p>Hi {{ User }}</p> -->
-    </div> 
-    <div class="posts">
-      <ul>
-        <li v-for="orang in Posts" :key="orang.id">
-          <div id="post-div">
-            <p>{{ orang.first_name }}</p>
-            <p>{{ orang.last_name }}</p>
-            <p>{{ orang.email }}</p> 
-          </div>
-        </li>
-      </ul>
-    </div>
-    <!-- <div v-else>Oh no!!! We have no posts</div> -->
+  <div class="container">  
+      <v-container>
+        <h4 class="h4-class"> Hello, now you can see list of users </h4>
+        <v-row no-gutters> 
+          <v-col cols="12" sm="2" v-for="orang in Posts" :key="orang.id">  
+            <v-card
+                class="pa-2"
+                outlined
+                tile
+              >
+              <div class="div-img">
+                  <img :src="orang.avatar" width="100%"/>
+              </div>
+              <p class="p-class">{{ orang.first_name }} {{ orang.last_name }}</p> 
+              <p class="p-class-email">{{ orang.email }}</p> 
+            </v-card>   
+        </v-col>
+      </v-row> 
+    </v-container> 
   </div>
 </template>
 
@@ -32,76 +35,44 @@ export default {
       },
     };
   },
-  created: function() {
-    // a function to call getposts action
+  created: function() { 
     this.GetPosts() 
   },
   computed: {
     ...mapGetters({ Posts: "StatePosts", User: "StateUser" }),
   },
   methods: {
-    ...mapActions(["GetPosts"]),
-    // async submit() {
-    //   try {
-    //     await this.CreatePost(this.form);
-    //   } catch (error) {
-    //     throw "Sorry you can't make a post now!"
-    //   }
-    // },
+    ...mapActions(["GetPosts"]), 
   },
 };
 </script>
 <style scoped>
-* {
-  box-sizing: border-box;
-}
-
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-}
-
-button[type="submit"] {
-  background-color: #4caf50;
-  color: white;
-  padding: 12px 20px;
-  cursor: pointer;
-  border-radius: 30px;
-  margin: 10px;
-}
-
-button[type="submit"]:hover {
-  background-color: #45a049;
-}
-
-input {
-  width: 60%;
-  margin: 15px;
-  border: 0;
-  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+.v-sheet.v-card{
+  margin: 5px;
   padding: 10px;
-  border-radius: 30px;
 }
-
-textarea {
-  width: 75%;
-  resize: vertical;
-  padding: 15px;
-  border-radius: 15px;
-  border: 0;
-  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
-  height: 150px;
-  margin: 15px;
+.h4-class{
+  font-size: 32px;
+  font-weight: bold;
+  padding: 40px 0 20px;
 }
-
-ul {
-  list-style: none;
+.p-class{
+  font-size: 14px;
 }
-
-#post-div {
-  border: 3px solid #000;
-  width: 500px;
-  margin: auto;
-  margin-bottom: 5px;
+.p-class-email{
+  font-size: 12px;
+  color: #a5a5a5;
+}
+.div-img{
+  display: flex;
+  flex-wrap: wrap;
+  height: 24vh;
+  padding-bottom: 20px;
+}
+.div-img img{
+  max-height: 100%;
+  min-width: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
 }
 </style>
