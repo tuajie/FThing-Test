@@ -1,13 +1,13 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/posts">User List</router-link> |
+    <router-link class="pad-10" to="/">Home</router-link> 
     <span v-if="isLoggedIn">
+      <router-link class="pad-10" to="/user">User List</router-link> 
       <a @click="logout">Logout</a>
     </span>
     <span v-else>
-      <router-link to="/register">Register</router-link> |
-      <router-link to="/login">Login</router-link>
+      <router-link class="pad-10" to="/login">Login</router-link>
+      <router-link class="pad-10" to="/register">Register</router-link>
     </span>
   </div>
 </template>
@@ -44,5 +44,8 @@ a:hover {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+.pad-10{
+  padding-right: 10px;
 }
 </style>

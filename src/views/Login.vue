@@ -96,7 +96,7 @@ export default {
           let response = await this.LogIn(this.form);
           let user = response;
           console.log(user, "user info !!") 
-          this.$router.push("/posts");
+          this.$router.push("/user");
           this.showError = false
       } catch (error) {
           console.log(error, "error !!")

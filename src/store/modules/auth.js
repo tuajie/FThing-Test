@@ -11,14 +11,7 @@ const getters = {
   StateUser: (state) => state.user,
 };
 
-const actions = {
-  // async Register({dispatch}, form) {
-  //   await axios.post('register', form)
-  //   let UserForm = new FormData()
-  //   UserForm.append('email', form.email)
-  //   UserForm.append('password', form.password)
-  //   await dispatch('LogIn', UserForm)
-  // },
+const actions = { 
 
   async Register({commit}, user) {
     let busuk = await axios.post("register", user);
